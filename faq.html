@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frequently asked questions about guitar lessons, PA hire, recording, and guitar services at BoxTone Studio, Ware, Hertfordshire.">
+<title>FAQ – BoxTone Studio</title>
+<style>
+  :root {
+    --black: #111;
+    --off-white: #f7f5f0;
+    --mid: #555;
+    --border: #ddd9d0;
+    --accent: #c8a84b;
+    --accent-dark: #a88930;
+    --white: #fff;
+    --font-body: 'Georgia', 'Times New Roman', serif;
+    --font-sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  nav a.logo {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+  }
+  nav a.back {
+    font-size: 0.85rem;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  nav a.back:hover { color: var(--black); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--off-white);
+    padding: 4rem 2.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-dark);
+  }
+  .hero p {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 520px;
+  }
+
+  /* ── JUMP NAV ── */
+  .jump-nav {
+    padding: 1.5rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .jump-nav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .jump-nav a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--mid);
+    transition: color 0.15s;
+  }
+  .jump-nav a:hover { color: var(--black); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2.5rem 5rem;
+  }
+
+  /* ── SECTION ── */
+  .faq-section {
+    padding-top: 4rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--black);
+  }
+  .section-icon {
+    font-size: 1.1rem;
+  }
+  .section-header h2 {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  /* ── ACCORDION ── */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    padding: 1.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.4;
+    transition: color 0.15s;
+  }
+  .faq-question:hover { color: var(--accent-dark); }
+  .faq-question.open { color: var(--accent-dark); }
+  .faq-chevron {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--mid);
+    transition: transform 0.25s ease;
+  }
+  .faq-question.open .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--accent-dark);
+  }
+  .faq-answer {
+    display: none;
+    padding: 0 0 1.5rem;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.8;
+  }
+  .faq-answer.open { display: block; }
+  .faq-answer p { margin-bottom: 0.75rem; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer ul {
+    margin: 0.5rem 0 0.75rem 1.2rem;
+  }
+  .faq-answer ul li { margin-bottom: 0.3rem; }
+  .faq-answer a {
+    color: var(--accent-dark);
+    text-decoration: underline;
+  }
+  .faq-answer strong { font-weight: 600; }
+
+  /* ── CTA ── */
+  .cta-block {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+  }
+  .cta-block h3 {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+  }
+  .cta-block p {
+    font-size: 0.9rem;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: #2a2a2a; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--black);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--black); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+    font-size: 0.8rem;
+    color: var(--mid);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+
+  @media (max-width: 600px) {
+    nav, .hero, .jump-nav, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    main { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .hero { padding-top: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="https://boxtonestudio.co.uk">BoxTone Studio</a>
+  <a class="back" href="https://boxtonestudio.co.uk">← Back to site</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-tag">Help &amp; Information</p>
+    <h1>Frequently asked <em>questions</em></h1>
+    <p>Everything you need to know about lessons, PA hire, recording, and guitar services. Can't find your answer? Get in touch directly.</p>
+  </div>
+</div>
+
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#lessons">Guitar Lessons</a>
+    <a href="#pa-hire">PA Hire</a>
+    <a href="#recording">Recording &amp; Voiceover</a>
+    <a href="#guitar-services">Guitar Services</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- GUITAR LESSONS -->
+  <section class="faq-section" id="lessons">
+    <div class="section-header">
+      <span class="section-icon">🎸</span>
+      <h2>Guitar Lessons</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Do I need any experience to start?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Not at all — complete beginners are very welcome. Lessons are tailored to where you are right now, whether that's holding a guitar for the first time or picking it back up after years away. There's no assumed knowledge.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What styles and genres do you teach?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Lessons cover electric and acoustic guitar across a wide range of styles — rock, blues, pop, and general technique. If you want to work towards Rockschool grades, that's covered too. The focus is always on what you actually want to play, not a fixed curriculum.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What ages do you teach?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>All ages are welcome. The Junior Starter session (30 minutes, £20) is designed for younger beginners who benefit from shorter, focused lessons. Adult beginners and advanced players are equally welcome. An Enhanced DBS check is in place for all teaching involving under-18s.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Do I need my own guitar?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>For regular lessons, yes — having your own instrument to practise on at home makes a real difference to progress. If you're unsure what to buy as a beginner, that's a great topic to cover in a first lesson. Guitar appraisal and advice is also available as part of the guitar services.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What are the available lesson times?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Current available slots are:</p>
+        <ul>
+          <li>Wednesday — 17:30 to 18:30</li>
+          <li>Saturday — 10:30, 11:30 and 12:30</li>
+        </ul>
+        <p>Slots are subject to availability. Check the <a href="https://www.sumupbookings.com/boxtonestudio">booking site</a> to see what's open.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        How much do lessons cost?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>There are two lesson formats:</p>
+        <ul>
+          <li><strong>Junior Starter (30 min)</strong> — £20, ideal for younger beginners</li>
+          <li><strong>Full Lesson (1 hour)</strong> — £35, suitable for all levels</li>
+        </ul>
+        <p>Payment is due at the time of each lesson unless a monthly block booking has been agreed in advance.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What's the cancellation policy for lessons?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>More than 48 hours' notice — no charge, lesson rescheduled or refunded. Between 24 and 48 hours — 50% of the lesson fee. Less than 24 hours or no-show — full fee applies.</p>
+        <p>If a student is unwell, please give as much notice as possible. Genuine illness is treated sympathetically and lessons are rescheduled wherever possible. Full terms are on the <a href="https://boxtonestudio.co.uk/terms.html">booking terms page</a>.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PA HIRE -->
+  <section class="faq-section" id="pa-hire">
+    <div class="section-header">
+      <span class="section-icon">🔊</span>
+      <h2>PA Hire</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What's included in the PA hire price?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>All bookings include delivery to your venue, full setup, engineer operation throughout your event, and packdown at the end. You don't need to manage anything on the day — the sound is covered from start to finish.</p>
+        <p>The rig includes Yamaha DXR12 MkII active tops, an X32 Rack 32-channel digital console, plus microphones, DI boxes, and all cabling.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What types of event do you cover?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>The rig is well-suited to pub functions, wedding receptions, birthday parties, corporate events, and acoustic acts needing a full professional sound. It handles indoor events up to around 120 guests comfortably. For outdoor events, pricing is available on request.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        How far do you travel?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>The core coverage area includes Ware, Hertford, Bishop's Stortford, St Albans, Stevenage, Harlow, and the surrounding Hertfordshire and Essex border. Travel beyond 20 miles from Ware may incur a supplement, which will be confirmed at the time of quoting.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Do you do outdoor events?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — outdoor events are available, priced on application depending on the size and nature of the event. Get in touch with details of your event and a quote will be provided. All outdoor bookings require safe and adequate access for load-in and load-out of equipment.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        How much does PA hire cost?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Guide pricing for indoor events:</p>
+        <ul>
+          <li><strong>Small indoor event (up to 60 guests)</strong> — £200–250</li>
+          <li><strong>Function or party (60–120 guests)</strong> — £300–400</li>
+          <li><strong>Wedding reception</strong> — £400–500</li>
+          <li><strong>Outdoor events</strong> — price on application</li>
+        </ul>
+        <p>These are guide prices. A specific quote can be provided once the details of your event are confirmed.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What deposit is required to secure a PA hire booking?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>A 50% non-refundable deposit is required to secure the date. The remaining balance is due no later than 7 days before the event — or on the day itself for bookings made within 7 days of the event.</p>
+        <p>See the full <a href="https://boxtonestudio.co.uk/terms.html">cancellation policy</a> for details on late cancellation charges.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Is the equipment insured?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. BoxTone Studio holds £10 million public liability insurance underwritten by Aviva through the Musicians' Union. The equipment itself is also insured. Any damage arising from wilful misuse or negligence by the client or their guests may be recharged at the cost of repair or replacement.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RECORDING & VOICEOVER -->
+  <section class="faq-section" id="recording">
+    <div class="section-header">
+      <span class="section-icon">🎙</span>
+      <h2>Recording &amp; Voiceover</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What's the studio setup like?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>It's a purpose-built, acoustically treated home studio in Ware, Hertfordshire. Equipment includes a Shure SM7B (the industry standard for voiceover and vocals), Lewitt LCT 440 Pure large-diaphragm condenser, a matched pair of Lewitt LCT 040 small-diaphragm condensers for stereo and acoustic work, and a Focusrite Saffire Pro 40 interface. Everything is run through Logic Pro on an Apple M4 Mac Mini.</p>
+        <p>For location work, a portable rig built around the RME Babyface Pro FS is available.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What kinds of voiceover work do you record?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>The studio is suited to commercial, corporate, audiobook, podcast, and e-learning voiceover content. Sessions are recorded in the acoustically treated studio and delivered as broadcast-ready files or raw stems — whichever works best for your production workflow.</p>
+        <p>Voiceover recording starts from £40 per hour.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        I'm a musician — can I record my songs here?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Musician demo recording is available from £150 and is particularly well suited to singer-songwriters, auditions, and social content. Guitar, vocals, and acoustic instruments can all be captured with professional microphones and mixed in Logic Pro.</p>
+        <p>It's also worth knowing that the engineer is an active gigging musician with 35 years of experience — so the session is shaped by someone who understands how music should sound, not just how to operate a DAW.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Do you produce podcasts?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — podcast recording, editing, and post-production is available from £25 per hour. Sessions are delivered clean and consistent, ready to publish. Whether you need a one-off recording or ongoing production support, get in touch to discuss what would suit you.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        When will I receive my finished files?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Finished files are delivered within 5 working days of the session unless a different timeline has been agreed in advance. A backup copy is retained for 30 days following delivery.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What deposit is required for a recording session?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>A 50% non-refundable deposit is required to secure the booking. The remaining balance is due on the day of the session before work begins. Sessions booked by the hour — any overrun will be charged at the standard hourly rate, subject to availability.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GUITAR SERVICES -->
+  <section class="faq-section" id="guitar-services">
+    <div class="section-header">
+      <span class="section-icon">🔧</span>
+      <h2>Guitar Services</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What does a full guitar setup include?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>A full setup covers action, intonation, truss rod adjustment, and nut and saddle work — everything needed to get your guitar playing as it should. Setups start from £70. If you've never had your guitar set up professionally, the difference is often significant.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        My guitar has worn or buzzing frets — can you help?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. A full refret service is available from £300, which restores playability and can significantly extend the life of a well-used instrument. If you're unsure whether a refret is needed, the appraisal service (£50) can give you an honest assessment before committing to the work.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        I'm thinking of buying a guitar — can you check it over first?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>That's exactly what the appraisal service is for. For £50, you get an honest, knowledgeable assessment of a guitar's condition, playability, and value — useful whether you're buying, selling, or just want to know what you've got. Advice comes from someone who plays, not just someone who measures.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Can you install new pickups or fix the electrics on my guitar?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — electronics, wiring, pickup installation, jack sockets, and general repairs are all covered under the guitar tech service. Most jobs are completed the same day. Pricing is on application depending on the work required; get in touch with details and a quote can be provided.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        How long will repairs and setups take?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Most setup and repair work is completed within 5 working days. An estimated completion date will be given at the time of drop-off. For guitar tech jobs (electronics, wiring, jack sockets), most work is completed the same day.</p>
+        <p>Instruments should be collected within 14 days of completion.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Will I be told if extra work is needed once you've started?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Always. Where possible a fixed price is agreed before work begins. For more complex repairs, an estimate is provided upfront. If anything unexpected comes up during the work, you'll be contacted before any additional charges are made. No surprises.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Still have a question?</h3>
+    <p>Get in touch directly — or head straight to the booking site to check availability and reserve your slot.</p>
+    <div class="cta-buttons">
+      <a href="https://store.boxtonestudio.co.uk" class="btn btn-primary">Book Now</a>
+      <a href="https://boxtonestudio.co.uk#contact" class="btn btn-secondary">Get in Touch</a>
+      <a href="https://boxtonestudio.co.uk/terms.html" class="btn btn-secondary">Booking Terms</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>Ware, Hertfordshire · Musicians' Union member · Enhanced DBS checked</span>
+  <span>
+    <a href="https://boxtonestudio.co.uk/terms.html">Booking Terms &amp; Cancellation Policy</a>
+    · © 2026 BoxTone Studio
+  </span>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    answer.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+</script>
+
+</body>
+</html>
