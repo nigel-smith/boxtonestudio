@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Terms & Cancellation Policy – BoxTone Studio</title>
+  <meta name="description" content="Booking terms, cancellation policy, and payment information for BoxTone Studio, Ware, Hertfordshire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:     #111110;
+      --off-white: #f5f3ef;
+      --warm-grey: #e8e4dc;
+      --mid-grey:  #9a9590;
+      --accent:    #c8a96e;
+      --text:      #2a2925;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 4vw;
+      background: rgba(245,243,239,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--warm-grey);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-back:hover { color: var(--accent); }
+
+    /* ── PAGE ── */
+    .page-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 8rem 4vw 6rem;
+    }
+
+    .page-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .rule {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-intro {
+      font-size: 1rem;
+      color: var(--mid-grey);
+      font-weight: 300;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--warm-grey);
+    }
+
+    /* ── POLICY SECTIONS ── */
+    .policy-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--warm-grey);
+    }
+
+    .policy-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .policy-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .policy-section p {
+      font-size: 0.95rem;
+      color: var(--mid-grey);
+      font-weight: 300;
+      margin-bottom: 0.85rem;
+    }
+
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    .policy-section p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .policy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+    }
+
+    .policy-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      padding: 0.6rem 1rem;
+      background: var(--warm-grey);
+      border-bottom: 1px solid var(--warm-grey);
+    }
+
+    .policy-table td {
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--warm-grey);
+      vertical-align: top;
+    }
+
+    .policy-table tr:last-child td { border-bottom: none; }
+    .policy-table tr:nth-child(even) td { background: rgba(232,228,220,0.3); }
+
+    .highlight-box {
+      background: var(--warm-grey);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 4px 4px 0;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .highlight-box strong { color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(245,243,239,0.5);
+      padding: 2.5rem 4vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--off-white);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    footer a {
+      color: rgba(245,243,239,0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .policy-table { font-size: 0.82rem; }
+      .policy-table th, .policy-table td { padding: 0.6rem 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Box<span>Tone</span> Studio</a>
+    <a href="/" class="nav-back">← Back to site</a>
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="page-wrap">
+
+    <p class="page-label">Legal & Policies</p>
+    <div class="rule"></div>
+    <h1>Booking Terms &amp; Cancellation Policy</h1>
+    <p class="page-intro">These terms apply to all services offered by BoxTone Studio, including guitar tuition, recording sessions, PA hire, and guitar services. By making a booking you agree to the terms below. Last updated: May 2026.</p>
+
+    <!-- LESSONS -->
+    <div class="policy-section">
+      <h2>Guitar Tuition</h2>
+
+      <p><strong>Booking</strong><br>
+      Lessons are available on a recurring weekly basis or as individual sessions. Slots are reserved on a first-come, first-served basis and are not confirmed until acknowledged by BoxTone Studio.</p>
+
+      <p><strong>Payment</strong><br>
+      Payment is due at the time of each lesson unless a monthly block booking arrangement has been agreed in advance. Accepted payment methods are listed on the booking site.</p>
+
+      <p><strong>Cancellation by the student</strong></p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Notice given</th>
+            <th>Charge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>More than 48 hours before the lesson</td>
+            <td>No charge — lesson rescheduled or refunded</td>
+          </tr>
+          <tr>
+            <td>24–48 hours before the lesson</td>
+            <td>50% of the lesson fee</td>
+          </tr>
+          <tr>
+            <td>Less than 24 hours or no-show</td>
+            <td>Full lesson fee payable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box">
+        <strong>Please note:</strong> Repeated late cancellations or no-shows may result in the slot being offered to another student.
+      </div>
+
+      <p><strong>Cancellation by BoxTone Studio</strong><br>
+      In the unlikely event that a lesson needs to be cancelled by BoxTone Studio, you will be given as much notice as possible and the lesson will be rescheduled at no extra cost, or a full refund issued if rescheduling is not possible.</p>
+
+      <p><strong>Illness</strong><br>
+      If a student is unwell, please give as much notice as possible. Cancellations due to genuine illness will be treated sympathetically — wherever possible lessons will be rescheduled rather than charged.</p>
+    </div>
+
+    <!-- RECORDING -->
+    <div class="policy-section">
+      <h2>Recording &amp; Voiceover Sessions</h2>
+
+      <p><strong>Booking &amp; deposit</strong><br>
+      Recording and voiceover sessions require a <strong>50% non-refundable deposit</strong> to secure the booking. The remaining balance is due on the day of the session before work begins.</p>
+
+      <p><strong>Cancellation by the client</strong></p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Notice given</th>
+            <th>Charge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>More than 7 days before the session</td>
+            <td>Deposit forfeited — no further charge</td>
+          </tr>
+          <tr>
+            <td>2–7 days before the session</td>
+            <td>50% of total session fee</td>
+          </tr>
+          <tr>
+            <td>Less than 48 hours or no-show</td>
+            <td>Full session fee payable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Session overruns</strong><br>
+      Sessions are booked by the hour. Time overrunning the booked session length will be charged at the standard hourly rate, subject to availability.</p>
+
+      <p><strong>Delivered files</strong><br>
+      Finished files will be delivered within 5 working days of the session unless otherwise agreed. BoxTone Studio retains a backup copy for 30 days following delivery.</p>
+    </div>
+
+    <!-- PA HIRE -->
+    <div class="policy-section">
+      <h2>PA Hire with Engineer</h2>
+
+      <p><strong>Booking &amp; deposit</strong><br>
+      PA hire bookings require a <strong>50% non-refundable deposit</strong> to secure the date. The remaining balance is due no later than 7 days before the event, or on the day for bookings made within 7 days of the event.</p>
+
+      <p><strong>Cancellation by the client</strong></p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Notice given</th>
+            <th>Charge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>More than 14 days before the event</td>
+            <td>Deposit forfeited — no further charge</td>
+          </tr>
+          <tr>
+            <td>7–14 days before the event</td>
+            <td>75% of total booking fee</td>
+          </tr>
+          <tr>
+            <td>Less than 7 days before the event</td>
+            <td>Full booking fee payable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Travel &amp; access</strong><br>
+      The client is responsible for ensuring safe and adequate access for load-in and load-out of equipment. Any parking costs, congestion charges, or access fees not disclosed at the time of booking will be recharged to the client.</p>
+
+      <p><strong>Damage to equipment</strong><br>
+      BoxTone Studio equipment is covered by insurance. However, any damage caused by wilful misuse or negligence on the part of the client or their guests may be recharged at the cost of repair or replacement.</p>
+    </div>
+
+    <!-- GUITAR SERVICES -->
+    <div class="policy-section">
+      <h2>Guitar Services</h2>
+
+      <p><strong>Estimates &amp; quotes</strong><br>
+      Where possible a fixed price will be agreed before work begins. For complex repairs, an estimate will be provided. If additional issues are discovered during the work, you will be contacted before any additional charges are incurred.</p>
+
+      <p><strong>Turnaround</strong><br>
+      Most setup and repair work is completed within 5 working days. An estimated completion date will be provided at the time of drop-off.</p>
+
+      <p><strong>Collection</strong><br>
+      Instruments should be collected within 14 days of completion. BoxTone Studio cannot accept liability for instruments left beyond this period.</p>
+
+      <p><strong>Liability</strong><br>
+      BoxTone Studio takes every care with instruments in its possession. Liability is limited to the cost of the work carried out. Customers are advised to ensure their instruments are covered by their own insurance whilst in transit.</p>
+    </div>
+
+    <!-- GENERAL -->
+    <div class="policy-section">
+      <h2>General</h2>
+
+      <p><strong>Privacy</strong><br>
+      Contact details provided at the time of booking are used solely for the purpose of managing your booking and will not be shared with third parties.</p>
+
+      <p><strong>Changes to these terms</strong><br>
+      BoxTone Studio reserves the right to update these terms at any time. The current version will always be available at this page. Existing bookings are governed by the terms in place at the time of booking.</p>
+
+      <p><strong>Questions</strong><br>
+      If you have any questions about these terms, please get in touch via <a href="https://boxtonestudio.co.uk">boxtonestudio.co.uk</a> before making a booking.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="/" class="footer-logo">Box<span>Tone</span> Studio</a>
+    <span>Ware, Hertfordshire &nbsp;·&nbsp; Musicians' Union member &nbsp;·&nbsp; Enhanced DBS checked</span>
+    <span>© 2026 BoxTone Studio</span>
+  </footer>
+
+</body>
+</html>
